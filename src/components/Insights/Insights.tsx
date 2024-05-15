@@ -29,9 +29,10 @@ export function Insights() {
 
       <div className="block">
         <h1>Suggestions</h1>
-        {suggestions?.map((suggesiton: Suggestion) => {
+        {suggestions?.map((suggesiton: Suggestion, i: number) => {
           return (
             <p
+              key={'insight_' + i}
               className={suggesiton.actionable ? 'action' : 'summary'}
               onClick={() => {
                 if (suggesiton.actionable) {

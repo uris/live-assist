@@ -22,10 +22,9 @@ export function MessageInput(props: Props) {
     focused = false,
     height = '23px',
     onSendMessage = () => null,
-    placeholder = `Message ${customerInfo?.firstName}...`,
+    placeholder = `Message ${customerInfo?.firstName} or attach files ...`,
   } = props;
-  const { handleUserMessage } = useChat();
-  const { input } = useChat();
+  const { handleUserMessage, input, handleSetInput } = useChat();
   const ref = useRef<HTMLTextAreaElement>(null);
   const addFile = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState<string>('');
@@ -33,6 +32,7 @@ export function MessageInput(props: Props) {
   const [file, setFile] = useState<any>(null);
 
   useEffect(() => {
+    if (input === '') return;
     setMessage(input || '');
     setTimeout(() => {
       adjustHeight();
@@ -70,7 +70,7 @@ export function MessageInput(props: Props) {
     if ((message !== '' || file) && ref.current) {
       const date = new Date();
       const newMessage: Message = {
-        role: 'user',
+        role: 'assistant',
         content: message,
         id: date.getTime().toString(),
         function: undefined,
@@ -81,6 +81,7 @@ export function MessageInput(props: Props) {
       handleUserMessage(newMessage);
       ref.current.value = '';
       setMessage('');
+      handleSetInput('');
       setFile(null);
       resetHeight();
       ref.current.focus();

@@ -1,4 +1,3 @@
-import { ManageAI } from '@class/ManageChat';
 import { Message } from '@comp/ChatMessage/ChatMessage';
 import { createContext, useContext, useState } from 'react';
 import { FunctionResponse } from '@class/ManageFunctionResposnes';
@@ -16,13 +15,23 @@ export type ChatContextType = {
   handleSetInput: (value: string) => void;
 };
 
+const defaultChatThread: Message[] = [
+  {
+    role: 'user',
+    content:
+      'Please explain the One-Time Transition Administration Fee. Why is this necessary?',
+    id: crypto.randomUUID(),
+    date: new Date().toISOString(),
+  },
+];
+
 interface Props {
   children?: any;
 }
 
 function ChatProvider(props: Props) {
   const { children } = props;
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>(defaultChatThread);
   const [processing, setProcessing] = useState<boolean>(false);
   const [input, setInput] = useState<string | null>(null);
   let timer: any = null;
@@ -77,25 +86,7 @@ function ChatProvider(props: Props) {
     let updates: Message[] = [...messages, userMessage];
     setMessages(updates);
     setProcessing(true);
-    const { success, reply } = await ManageAI.getChatResponse(
-      userMessage,
-      messages,
-    );
-    if (success && reply) {
-      handleReply(updates, reply);
-    }
     setProcessing(false);
-  }
-
-  function handleReply(messages: Message[], reply: any) {
-    if (reply.role === 'function') {
-      const newMessage: Message = FunctionResponse.setResponse(
-        reply.function.name,
-      );
-      setMessages([...messages, newMessage]);
-    } else {
-      setMessages([...messages, reply]);
-    }
   }
 
   return (

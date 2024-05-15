@@ -37,15 +37,16 @@ export const SharePanel = styled.div`
 
 export const ChatPanel = styled.div`
   ${flexBox.columnStart};
-  min-width: 300px;
+  min-width: 350px;
+  max-width: 350px;
   height: 100%;
   border-right: 1px solid ${themeColors.grays200};
 `;
 
 export const InsightsPanel = styled.div`
   ${flexBox.columnStart};
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 350px;
+  max-width: 350px;
   height: 100%;
 `;
 

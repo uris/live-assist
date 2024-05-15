@@ -1,32 +1,29 @@
 import { themeColors } from '@ref/colors';
-import { flexBox } from '@ref/styles';
+import { flexBox, type } from '@ref/styles';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div<{ $isUser: boolean }>`
   ${flexBox.columnStart};
-  h2 {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
+  div.user {
+    ${flexBox.row};
+    ${type.desktop.textMedium};
+    padding: 16px;
     font-weight: 500;
-    line-height: 1.2em;
-    margin-left: 24px;
-    margin-bottom: 6px;
-    max-width: 70ch;
-    max-width: 70ch;
-  }
-  .assistant {
-    color: ${themeColors.graysTextTertiary};
-    font-weight: 400;
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    margin-bottom: 24px;
     line-height: 1.5em;
-    margin-left: 24px;
-    max-width: 70ch;
-    max-width: 70ch;
-    white-space: pre-wrap;
+    background-color: ${themeColors.grays600};
+    border-radius: 8px;
+    color: ${themeColors.graysWhite};
+  }
+  div.assistant {
+    ${flexBox.row};
+    ${type.desktop.textMedium};
+    padding: 16px;
+    font-weight: 400;
+    line-height: 1.5em;
+    background-color: ${themeColors.graysWhite};
+    border: 1px solid ${themeColors.grays200};
+    border-radius: 8px;
+    color: ${themeColors.graysTextPrimary};
   }
   p {
     margin: 0;

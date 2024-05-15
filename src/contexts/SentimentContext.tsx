@@ -20,11 +20,11 @@ export type InsightContextType = {
 export type Suggestion = {
   message?: string;
   actionable?: boolean;
-  files?: string[];
+  file?: string;
 };
 
 const defaultSummary =
-  'Jenn has an overall possitive and engaged attitude but could become frustrated if unable to understand details related to pricing of the Meridian Core quote that was provided.';
+  'Jenn is overall positive and engaged but could become frustrated if unable to understand details related to adminstration fee (see chat history).';
 
 const defaultSuggestions: Suggestion[] = [
   {
@@ -34,11 +34,12 @@ const defaultSuggestions: Suggestion[] = [
   },
   {
     message:
-      'Approach: reassure Jenn that pricing can seem complicated but when explained it becomes much simpler and easier to understand',
+      'G-P Deffrentiators: Always reinforce G-Ps deffrentiators in addition to core features and services',
   },
   {
+    file: 'The G-P Difference',
     message:
-      'G-P Deffrentiators: Always reinforce G-Ps deffrentiators in addition to core features and services',
+      'Approach: reassure Jenn that pricing can seem complicated but when explained it becomes much simpler and easier to understand',
   },
 ];
 

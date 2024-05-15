@@ -1,5 +1,5 @@
+import { useAccount } from '@context/AccountContext';
 import * as Styled from './Styles';
-import { FileButtonList } from '@comp/FileButtonList.tsx/FileButtonList';
 
 export type ChatFile = {
   name?: string;
@@ -30,31 +30,14 @@ interface Props {
 
 export function ChatMessage(props: Props) {
   const { message = defaultMessage } = props;
-
-  function formatMessage() {
-    const paragraphs = message.content
-      .replace(/\r\n/g, '\r')
-      .replace(/\n/g, '\r')
-      .split(/\r/);
-    if (paragraphs) {
-      return paragraphs.map((paragraph: string, i: number) => {
-        return <p key={message.id + '_' + i}>{paragraph}</p>;
-      });
-    } else {
-      return message.content;
-    }
-  }
-
-  function renderAttachments() {
-    if (!message.attachments) return null;
-    return <FileButtonList type={'inline'} files={message.attachments} />;
-  }
+  const { customerInfo } = useAccount();
 
   function userMessage() {
     return (
       <Styled.Wrapper $isUser={true}>
-        <h2 className="user">{formatMessage()}</h2>
-        {renderAttachments()}
+        <div className="user">
+          {`${customerInfo?.firstName}: ${message.content}`}
+        </div>
       </Styled.Wrapper>
     );
   }
@@ -62,9 +45,10 @@ export function ChatMessage(props: Props) {
   function assistantMessage() {
     return (
       <Styled.Wrapper $isUser={false}>
-        <h2 className="assistant">{formatMessage()}</h2>
+        <div className="assistant">{`You: ${message.content}`}</div>
       </Styled.Wrapper>
     );
   }
+
   return message.role === 'user' ? userMessage() : assistantMessage();
 }

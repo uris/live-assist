@@ -7,7 +7,7 @@ interface Props {
 }
 
 export function ProgressBar(props: Props) {
-  const { height = 3, type = 'sentiment' } = props;
+  const { height = 5, type = 'sentiment' } = props;
   const { sentiment, engagement, frustration } = userInsight();
   function setValue() {
     if (type === 'engagement') return engagement;
