@@ -8,10 +8,12 @@ const ChatContext = createContext<ChatContextType>({} as ChatContextType);
 export type ChatContextType = {
   messages: Message[];
   processing: boolean;
+  input: string | null;
   handleUpdateMessages: (messages: Message[] | Message) => void;
   handleSendUserMessage: (userMessage: Message) => void;
   handleUserMessage: (userMessage: Message) => void;
   handleClearChat: () => void;
+  handleSetInput: (value: string) => void;
 };
 
 interface Props {
@@ -22,6 +24,7 @@ function ChatProvider(props: Props) {
   const { children } = props;
   const [messages, setMessages] = useState<Message[]>([]);
   const [processing, setProcessing] = useState<boolean>(false);
+  const [input, setInput] = useState<string | null>(null);
   let timer: any = null;
 
   function handleUpdateMessages(newMessages: Message[] | Message) {
@@ -32,6 +35,13 @@ function ChatProvider(props: Props) {
       updates = [...messages, newMessages];
     }
     setMessages(updates);
+  }
+
+  function handleSetInput(value: string) {
+    let text = value.replace('Response: ', '');
+    text = text.replace('"', '');
+    text = text.replace('"', '');
+    setInput(text);
   }
 
   function handleClearChat() {
@@ -93,10 +103,12 @@ function ChatProvider(props: Props) {
       value={{
         messages,
         processing,
+        input,
         handleUpdateMessages,
         handleSendUserMessage,
         handleClearChat,
         handleUserMessage,
+        handleSetInput,
       }}
     >
       {children}

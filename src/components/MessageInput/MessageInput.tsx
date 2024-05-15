@@ -25,12 +25,14 @@ export function MessageInput(props: Props) {
     placeholder = `Message ${customerInfo?.firstName}...`,
   } = props;
   const { handleUserMessage } = useChat();
-
+  const { input } = useChat();
   const ref = useRef<HTMLTextAreaElement>(null);
   const addFile = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState<string>('');
   const [fileOver, setFileOver] = useState<boolean>(false);
   const [file, setFile] = useState<any>(null);
+
+  useEffect(() => setMessage(input || ''), [input]);
 
   // reset the height of the input on mount to initial height
   useEffect(() => resetHeight(), []);

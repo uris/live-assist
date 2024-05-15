@@ -46,7 +46,8 @@ export const Wrapper = styled.div`
     margin-left: 16px;
     text-transform: uppercase;
   }
-  p.summary {
+  p.summary,
+  p.action {
     ${type.desktop.textMedium};
     color: ${themeColors.graysTextPrimary};
     line-height: 1.5em;
@@ -55,5 +56,10 @@ export const Wrapper = styled.div`
     margin: 0;
     background-color: ${themeColors.grays100};
     border-radius: 8px;
+  }
+  p.action {
+    border: 1px solid ${themeColors.primaryGPBlue};
+    background-color: ${themeColors.graysWhite};
+    cursor: pointer;
   }
 `;

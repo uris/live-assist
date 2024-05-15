@@ -28,17 +28,17 @@ const defaultSummary =
 
 const defaultSuggestions: Suggestion[] = [
   {
+    actionable: true,
+    message:
+      'Response: "While pricing may look a little complex at first, I can walk you through the details and review any options you might have."',
+  },
+  {
     message:
       'Approach: reassure Jenn that pricing can seem complicated but when explained it becomes much simpler and easier to understand',
   },
   {
     message:
       'G-P Deffrentiators: Always reinforce G-Ps deffrentiators in addition to core features and services',
-  },
-  {
-    actionable: true,
-    message:
-      'Possible Response: While pricing may look a little complex at first, I can walk you through the details and review any options you might have.',
   },
 ];
 
