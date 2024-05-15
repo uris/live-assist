@@ -19,6 +19,7 @@ export type InsightContextType = {
 
 export type Suggestion = {
   message?: string;
+  actionable?: boolean;
   files?: string[];
 };
 
@@ -32,11 +33,12 @@ const defaultSuggestions: Suggestion[] = [
   },
   {
     message:
-      'Honesty: provide clarity around pricing in a direct and honest manner',
+      'G-P Deffrentiators: Always reinforce G-Ps deffrentiators in addition to core features and services',
   },
   {
+    actionable: true,
     message:
-      'G-P Deffrentiators: Always reinforce G-Ps deffrentiators in addition to core features and services',
+      'Possible Response: While pricing may look a little complex at first, I can walk you through the details and review any options you might have.',
   },
 ];
 
