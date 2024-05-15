@@ -1,6 +1,8 @@
 import { useAccount } from '@context/AccountContext';
 import * as Styled from './Styles';
 import { Image } from '@asset/images/Logo';
+import { Icon } from '@asset/Icons/Icon';
+import { themeColors } from '@ref/colors';
 
 export type ChatFile = {
   name?: string;
@@ -43,6 +45,20 @@ export function ChatMessage(props: Props) {
     );
   }
 
+  function setButton() {
+    if (!message.title) return;
+    return (
+      <div className="file">
+        {message.title}
+        <Icon
+          name={'share arrow'}
+          size={16}
+          strokeColor={themeColors.primaryGPBlue}
+        />
+      </div>
+    );
+  }
+
   function userMessage() {
     return (
       <Styled.Wrapper $isUser={true}>
@@ -59,6 +75,7 @@ export function ChatMessage(props: Props) {
         <div className="assistant">
           {`You: ${message.content}`}
           {setFiles()}
+          {setButton()}
         </div>
       </Styled.Wrapper>
     );
