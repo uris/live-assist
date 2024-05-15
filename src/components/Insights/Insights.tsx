@@ -39,7 +39,7 @@ export function Insights() {
             <p
               key={'suggestion_' + i}
               className={'action'}
-              onClick={() => handleSetInput(suggesiton.message || '')}
+              onClick={() => handleSetInput(suggesiton)}
             >
               {suggesiton.message}
             </p>

@@ -32,8 +32,8 @@ export function MessageInput(props: Props) {
   const [file, setFile] = useState<any>(null);
 
   useEffect(() => {
-    if (input === '') return;
-    setMessage(input || '');
+    if (!input) return;
+    setMessage(input.message || '');
     setTimeout(() => {
       adjustHeight();
     }, 150);
@@ -73,15 +73,14 @@ export function MessageInput(props: Props) {
         role: 'assistant',
         content: message,
         id: date.getTime().toString(),
-        function: undefined,
         date: date.toISOString(),
-        attachments: file ? [file] : undefined,
+        file: input?.file ? input.file : undefined,
       };
       onSendMessage(newMessage);
       handleUserMessage(newMessage);
       ref.current.value = '';
       setMessage('');
-      handleSetInput('');
+      handleSetInput(null);
       setFile(null);
       resetHeight();
       ref.current.focus();

@@ -32,7 +32,12 @@ const defaultSuggestions: Suggestion[] = [
   {
     actionable: true,
     message:
-      "Response: This is an important and very common question. There is a legal and administrative cost associated with getting each Professional started in a new country. It pays for our administrative, legal and operational costs. Consider this a one-time start up fee. I've also sent you a link where you can read about it in more detail.",
+      'This is an important and very common question. There is a legal and administrative cost associated with getting each Professional started in a new country. It pays for our administrative, legal and operational costs. Consider this a one-time start up fee.',
+  },
+  {
+    actionable: true,
+    file: 'Pricing Details',
+    message: "Here's a file that goes into all pricing details.",
   },
 ];
 

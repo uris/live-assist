@@ -1,5 +1,6 @@
 import { useAccount } from '@context/AccountContext';
 import * as Styled from './Styles';
+import { Image } from '@asset/images/Logo';
 
 export type ChatFile = {
   name?: string;
@@ -12,7 +13,7 @@ export type Message = {
   content: string;
   title?: string;
   function?: string;
-  files?: ChatFile[];
+  file?: string;
   attachments?: any[];
   date?: string;
   id: string;
@@ -32,6 +33,16 @@ export function ChatMessage(props: Props) {
   const { message = defaultMessage } = props;
   const { customerInfo } = useAccount();
 
+  function setFiles() {
+    if (!message.file) return;
+    return (
+      <div className="file">
+        <Image image={'pdf'} height={24} />
+        {message.file}
+      </div>
+    );
+  }
+
   function userMessage() {
     return (
       <Styled.Wrapper $isUser={true}>
@@ -45,7 +56,10 @@ export function ChatMessage(props: Props) {
   function assistantMessage() {
     return (
       <Styled.Wrapper $isUser={false}>
-        <div className="assistant">{`You: ${message.content}`}</div>
+        <div className="assistant">
+          {`You: ${message.content}`}
+          {setFiles()}
+        </div>
       </Styled.Wrapper>
     );
   }

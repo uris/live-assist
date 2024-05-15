@@ -1,18 +1,19 @@
 import { Message } from '@comp/ChatMessage/ChatMessage';
 import { createContext, useContext, useState } from 'react';
 import { FunctionResponse } from '@class/ManageFunctionResposnes';
+import { Suggestion } from './SentimentContext';
 
 const ChatContext = createContext<ChatContextType>({} as ChatContextType);
 
 export type ChatContextType = {
   messages: Message[];
   processing: boolean;
-  input: string | null;
+  input: Suggestion | null;
   handleUpdateMessages: (messages: Message[] | Message) => void;
   handleSendUserMessage: (userMessage: Message) => void;
   handleUserMessage: (userMessage: Message) => void;
   handleClearChat: () => void;
-  handleSetInput: (value: string) => void;
+  handleSetInput: (suggestion: Suggestion | null) => void;
 };
 
 const defaultChatThread: Message[] = [
@@ -33,7 +34,7 @@ function ChatProvider(props: Props) {
   const { children } = props;
   const [messages, setMessages] = useState<Message[]>(defaultChatThread);
   const [processing, setProcessing] = useState<boolean>(false);
-  const [input, setInput] = useState<string | null>(null);
+  const [input, setInput] = useState<Suggestion | null>(null);
   let timer: any = null;
 
   function handleUpdateMessages(newMessages: Message[] | Message) {
@@ -46,11 +47,8 @@ function ChatProvider(props: Props) {
     setMessages(updates);
   }
 
-  function handleSetInput(value: string) {
-    let text = value.replace('Response: ', '');
-    text = text.replace('"', '');
-    text = text.replace('"', '');
-    setInput(text);
+  function handleSetInput(suggestion: Suggestion | null) {
+    setInput(suggestion);
   }
 
   function handleClearChat() {

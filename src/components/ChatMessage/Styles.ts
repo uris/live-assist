@@ -15,8 +15,9 @@ export const Wrapper = styled.div<{ $isUser: boolean }>`
     color: ${themeColors.graysWhite};
   }
   div.assistant {
-    ${flexBox.row};
+    ${flexBox.columnStart};
     ${type.desktop.textMedium};
+    gap: 16px;
     padding: 16px;
     font-weight: 400;
     line-height: 1.5em;
@@ -29,5 +30,14 @@ export const Wrapper = styled.div<{ $isUser: boolean }>`
     margin: 0;
     padding: 0;
     margin-bottom: 8px;
+  }
+  div.file {
+    ${flexBox.row};
+    gap: 8px;
+    ${type.desktop.textMedium};
+    background-color: ${themeColors.grays200};
+    color: ${themeColors.primaryGPBlue};
+    border-radius: 6px;
+    padding: 8px 16px;
   }
 `;
