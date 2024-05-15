@@ -6,6 +6,8 @@ import { MessageThread } from '@comp/MessageThread/MessageThread';
 import { ChatMessageList } from '@comp/ChatMessageList/ChatMessageList';
 import { PanelHeader } from '@comp/PanelHeader/PanelHeader';
 import { Insights } from '@comp/Insights/Insights';
+import { Share } from '@comp/Share/Share';
+import { ShareControls } from '@comp/SahareControls/ShareControls';
 
 export function Dashboard() {
   return (
@@ -19,6 +21,8 @@ export function Dashboard() {
       <Styled.ContentWrapper>
         <Styled.SharePanel>
           <PanelHeader title={'Screen & Audio Share'} />
+          <Share />
+          <ShareControls />
         </Styled.SharePanel>
         <Styled.ChatPanel>
           <PanelHeader title={'Chat'} />

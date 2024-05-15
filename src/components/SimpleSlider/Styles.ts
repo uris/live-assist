@@ -37,7 +37,7 @@ export const Track = styled.div`
   position: relative;
   width: 0px;
   height: 100%;
-  background-color: ${themeColors.green500};
+  background-color: ${themeColors.grays400};
   overflow: visible;
   pointer-events: none;
   border-radius: 100px;
@@ -46,7 +46,7 @@ export const Track = styled.div`
 export const TrackHead = styled.div<{ $size: number | null }>`
   position: absolute;
   display: ${({ $size }) => ($size ? 'block' : 'none')};
-  background-color: ${themeColors.graysTextPrimary};
+  background-color: ${themeColors.grays400};
   pointer-events: none;
   border-radius: 100%;
   max-width: ${({ $size }) => $size || 0}px;
