@@ -1,6 +1,5 @@
 import { Message } from '@comp/ChatMessage/ChatMessage';
 import { createContext, useContext, useState } from 'react';
-import { FunctionResponse } from '@class/ManageFunctionResposnes';
 import { Suggestion } from './SentimentContext';
 
 const ChatContext = createContext<ChatContextType>({} as ChatContextType);
@@ -72,11 +71,6 @@ function ChatProvider(props: Props) {
       setProcessing(true);
       // time out to then render the assitant response
       if (timer) clearTimeout(timer);
-      timer = setTimeout(() => {
-        const response = FunctionResponse.setResponse('contractReview');
-        setMessages([...updates, response]);
-        setProcessing(false);
-      }, 3000);
     } else handleSendUserMessage(userMessage);
   }
 
