@@ -30,7 +30,7 @@ const defaultSuggestions: Suggestion[] = [
   {
     actionable: true,
     message:
-      'Response: "While pricing may look a little complex at first, I can walk you through the details and review any options you might have."',
+      "Response: This is an important and very common question. There is a legal and administrative cost associated with getting each Professional started in a new country. It pays for our administrative, legal and operational costs. Consider this a one-time start up fee. I've also sent you a link where you can read about it in more detail.",
   },
   {
     message:

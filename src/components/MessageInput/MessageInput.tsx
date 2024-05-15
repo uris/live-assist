@@ -32,7 +32,12 @@ export function MessageInput(props: Props) {
   const [fileOver, setFileOver] = useState<boolean>(false);
   const [file, setFile] = useState<any>(null);
 
-  useEffect(() => setMessage(input || ''), [input]);
+  useEffect(() => {
+    setMessage(input || '');
+    setTimeout(() => {
+      adjustHeight();
+    }, 150);
+  }, [input]);
 
   // reset the height of the input on mount to initial height
   useEffect(() => resetHeight(), []);
