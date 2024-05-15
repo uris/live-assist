@@ -1,0 +1,44 @@
+/****************/
+/*** Basier ***/
+/****************/
+@font-face {
+  font-family: 'BasierCircle-Regular';
+  src: url('../assets/fonts/BasierCircle-Regular.woff') format('woff');
+  font-synthesis-weight: auto;
+}
+@font-face {
+  font-family: 'BasierCircle-Medium';
+  src: url('../assets/fonts/BasierCircle-Medium.woff') format('woff');
+  font-synthesis-weight: auto;
+}
+@font-face {
+  font-family: 'BasierCircle-SemiBold';
+  src: url('../assets/fonts/BasierCircle-SemiBold.woff') format('woff');
+  font-synthesis-weight: auto;
+}
+@font-face {
+  font-family: 'BasierCircle-Bold';
+  src: url('../assets/fonts/BasierCircle-Bold.woff') format('woff');
+  font-synthesis-weight: auto;
+}
+
+/****************/
+/*** Poly Sans */
+/****************/
+@font-face {
+  font-family: 'GPPolySans-Slim';
+  src: url('../assets/fonts/GPPolySans-Slim.woff') format('woff');
+  font-synthesis-weight: auto;
+}
+
+@font-face {
+  font-family: 'GPPolySans-Neutral';
+  src: url('../assets/fonts/GPPolySans-Neutral.woff') format('woff');
+  font-synthesis-weight: auto;
+}
+
+@font-face {
+  font-family: 'GPPolySans-Median';
+  src: url('../assets/fonts/GPPolySans-Median.woff') format('woff');
+  font-synthesis-weight: auto;
+}
