@@ -45,6 +45,7 @@ export const ChatPanel = styled.div`
 export const InsightsPanel = styled.div`
   ${flexBox.columnStart};
   min-width: 300px;
+  max-width: 300px;
   height: 100%;
 `;
 

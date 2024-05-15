@@ -5,7 +5,7 @@ import { MessageInput } from '@comp/MessageInput/MessageInput';
 import { MessageThread } from '@comp/MessageThread/MessageThread';
 import { ChatMessageList } from '@comp/ChatMessageList/ChatMessageList';
 import { PanelHeader } from '@comp/PanelHeader/PanelHeader';
-import { ProgressBar } from '@comp/ProgressBar/ProgressBar';
+import { Insights } from '@comp/Insights/Insights';
 
 export function Dashboard() {
   return (
@@ -27,13 +27,8 @@ export function Dashboard() {
           </MessageThread>
         </Styled.ChatPanel>
         <Styled.InsightsPanel>
-          <PanelHeader title={'Insights'} />
-          Sentiment:
-          <ProgressBar type={'engagement'} />
-          Engagement:
-          <ProgressBar type={'engagement'} />
-          Frustration:
-          <ProgressBar type={'frustration'} />
+          <PanelHeader title={'Live Insights'} />
+          <Insights />
         </Styled.InsightsPanel>
       </Styled.ContentWrapper>
       <Styled.MessagePanel>
