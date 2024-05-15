@@ -46,8 +46,8 @@ const defaultCustomer: CustomerInfo = {
   lastName: 'Huang',
   email: 'jhuang@g-p.com',
   avatar: UserAvatar,
-  company: 'Globalization Partners',
-  role: 'Project Manager',
+  company: 'Dog Baby',
+  role: 'Owner',
   account: false,
 };
 

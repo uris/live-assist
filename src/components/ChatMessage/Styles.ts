@@ -10,7 +10,7 @@ export const Wrapper = styled.div<{ $isUser: boolean }>`
     padding: 16px;
     font-weight: 500;
     line-height: 1.5em;
-    background-color: ${themeColors.grays600};
+    background-color: ${themeColors.grays700};
     border-radius: 8px;
     color: ${themeColors.graysWhite};
   }

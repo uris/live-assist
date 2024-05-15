@@ -14,7 +14,9 @@ export type InsightContextType = {
   summary: string;
   setSummary: any;
   suggestions: Suggestion[] | null;
+  coaching: Suggestion[] | null;
   setSuggestions: any;
+  setCoaching: any;
 };
 
 export type Suggestion = {
@@ -32,12 +34,14 @@ const defaultSuggestions: Suggestion[] = [
     message:
       "Response: This is an important and very common question. There is a legal and administrative cost associated with getting each Professional started in a new country. It pays for our administrative, legal and operational costs. Consider this a one-time start up fee. I've also sent you a link where you can read about it in more detail.",
   },
+];
+
+const defaultCoaching: Suggestion[] = [
   {
     message:
-      'G-P Deffrentiators: Always reinforce G-Ps deffrentiators in addition to core features and services',
+      'G-P Deffrentiators: Always reinforce G-Ps deffrentiators in addition to core features and services.',
   },
   {
-    file: 'The G-P Difference',
     message:
       'Approach: reassure Jenn that pricing can seem complicated but when explained it becomes much simpler and easier to understand',
   },
@@ -56,6 +60,9 @@ function InsightProvider(props: Props) {
   const [suggestions, setSuggestions] = useState<Suggestion[] | null>(
     defaultSuggestions,
   );
+  const [coaching, setCoaching] = useState<Suggestion[] | null>(
+    defaultCoaching,
+  );
 
   return (
     <InsightContext.Provider
@@ -65,11 +72,13 @@ function InsightProvider(props: Props) {
         engagement,
         summary,
         suggestions,
+        coaching,
         setEnagement,
         setFrustration,
         setSentiment,
         setSummary,
         setSuggestions,
+        setCoaching,
       }}
     >
       {children}

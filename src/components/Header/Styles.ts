@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   ${flexBox.rowStart};
   ${type.desktop.textMedium};
-  padding: 10px 24px;
+  padding: 10px 16px;
   width: 100%;
   background-color: ${themeColors.primaryGPBlue};
   color: ${themeColors.graysWhite};

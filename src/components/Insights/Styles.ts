@@ -47,7 +47,9 @@ export const Wrapper = styled.div`
     width: 100%;
   }
   h1 {
+    ${flexBox.row};
     ${type.desktop.textMedium};
+    gap: 4px;
     padding: 0;
     margin: 0;
     text-transform: uppercase;

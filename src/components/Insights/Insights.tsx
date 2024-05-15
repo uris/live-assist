@@ -2,9 +2,10 @@ import { ProgressBar } from '@comp/ProgressBar/ProgressBar';
 import * as Styled from './Styles';
 import { Suggestion, userInsight } from '@context/SentimentContext';
 import { useChat } from '@context/ChatThread';
+import { Icon } from '@asset/Icons/Icon';
 
 export function Insights() {
-  const { summary, suggestions } = userInsight();
+  const { summary, suggestions, coaching } = userInsight();
   const { handleSetInput } = useChat();
   return (
     <Styled.Wrapper>
@@ -23,23 +24,36 @@ export function Insights() {
         </div>
       </div>
       <div className="block">
-        <h1>Summary</h1>
+        <h1>
+          Summary <Icon name={'chevron down'} size={16} />
+        </h1>
         <p className="summary">{summary}</p>
       </div>
 
       <div className="block">
-        <h1>Suggestions</h1>
+        <h1>
+          Suggested Responses <Icon name={'chevron down'} size={16} />
+        </h1>
         {suggestions?.map((suggesiton: Suggestion, i: number) => {
           return (
             <p
-              key={'insight_' + i}
-              className={suggesiton.actionable ? 'action' : 'summary'}
-              onClick={() => {
-                if (suggesiton.actionable) {
-                  handleSetInput(suggesiton.message || '');
-                }
-              }}
+              key={'suggestion_' + i}
+              className={'action'}
+              onClick={() => handleSetInput(suggesiton.message || '')}
             >
+              {suggesiton.message}
+            </p>
+          );
+        })}
+      </div>
+
+      <div className="block">
+        <h1>
+          Coaching <Icon name={'chevron down'} size={16} />
+        </h1>
+        {coaching?.map((suggesiton: Suggestion, i: number) => {
+          return (
+            <p key={'suggestion_' + i} className={'summary'}>
               {suggesiton.message}
             </p>
           );
