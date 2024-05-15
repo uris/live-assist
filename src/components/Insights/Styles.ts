@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   ${flexBox.columnStart};
   padding: 24px;
   width: 100%;
-  gap: 24px;
   div.value {
     ${flexBox.columnStart};
     ${type.desktop.textMedium};
@@ -34,16 +33,23 @@ export const Wrapper = styled.div`
     border: 4px solid ${themeColors.graysWhite};
     cursor: default;
   }
+  div.block-values {
+    ${flexBox.columnStart};
+    gap: 24px;
+    padding: 0px 0px 32px 0px;
+    width: 100%;
+  }
   div.block {
     ${flexBox.columnStart};
-    gap: 6px;
-    margin-top: 16px;
+    gap: 16px;
+    padding: 24px 0px 24px 0px;
+    border-top: 1px solid ${themeColors.grays200};
+    width: 100%;
   }
   h1 {
     ${type.desktop.textMedium};
     padding: 0;
     margin: 0;
-    margin-left: 16px;
     text-transform: uppercase;
   }
   p.summary,
@@ -52,14 +58,13 @@ export const Wrapper = styled.div`
     color: ${themeColors.graysTextPrimary};
     line-height: 1.5em;
     box-sizing: border-box;
-    padding: 16px;
     margin: 0;
-    background-color: ${themeColors.grays100};
-    border-radius: 8px;
   }
   p.action {
     border: 1px solid ${themeColors.primaryGPBlue};
     background-color: ${themeColors.graysWhite};
+    border-radius: 8px;
     cursor: pointer;
+    padding: 16px;
   }
 `;

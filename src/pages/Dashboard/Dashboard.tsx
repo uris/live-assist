@@ -7,9 +7,11 @@ import { ChatMessageList } from '@comp/ChatMessageList/ChatMessageList';
 import { PanelHeader } from '@comp/PanelHeader/PanelHeader';
 import { Insights } from '@comp/Insights/Insights';
 import { Share } from '@comp/Share/Share';
-import { ShareControls } from '@comp/SahareControls/ShareControls';
+import { ShareControls } from '@comp/ShareControls/ShareControls';
+import { useAccount } from '@context/AccountContext';
 
 export function Dashboard() {
+  const { customerInfo } = useAccount();
   return (
     <Styled.Viewport>
       <Styled.Header>
@@ -25,7 +27,7 @@ export function Dashboard() {
           <ShareControls />
         </Styled.SharePanel>
         <Styled.ChatPanel>
-          <PanelHeader title={'Chat'} />
+          <PanelHeader title={`Chat with ${customerInfo?.firstName}`} />
           <MessageThread>
             <ChatMessageList />
           </MessageThread>
