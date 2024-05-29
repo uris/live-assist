@@ -9,9 +9,11 @@ import { Insights } from '@comp/Insights/Insights';
 import { Share } from '@comp/Share/Share';
 import { ShareControls } from '@comp/ShareControls/ShareControls';
 import { useAccount } from '@context/AccountContext';
+import { useLayout } from '@context/LayoutContext';
 
 export function Dashboard() {
   const { customerInfo } = useAccount();
+  const { connected } = useLayout();
   return (
     <Styled.Viewport>
       <Styled.Header>
@@ -27,7 +29,11 @@ export function Dashboard() {
           <ShareControls />
         </Styled.SharePanel>
         <Styled.ChatPanel>
-          <PanelHeader title={`${customerInfo?.firstName}'s Chat History`} />
+          <PanelHeader
+            title={`${customerInfo?.firstName}'s Chat: ${
+              connected ? 'Live with You' : 'Live with GIA'
+            }`}
+          />
           <MessageThread>
             <ChatMessageList />
           </MessageThread>

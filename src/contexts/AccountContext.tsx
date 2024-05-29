@@ -42,11 +42,11 @@ const defaultUser: UserInfo = {
 };
 
 const defaultCustomer: CustomerInfo = {
-  firstName: 'Jenn',
-  lastName: 'Huang',
-  email: 'jhuang@g-p.com',
+  firstName: 'Pam',
+  lastName: 'Beesly',
+  email: 'pam@dundermifflin.com',
   avatar: UserAvatar,
-  company: 'Dog Baby',
+  company: 'Dunder Mifflin Paper Co.',
   role: 'Owner',
   account: false,
 };

@@ -3,10 +3,12 @@ import * as Styled from './Styles';
 import { Suggestion, userInsight } from '@context/SentimentContext';
 import { useChat } from '@context/ChatThread';
 import { Icon } from '@asset/Icons/Icon';
+import { useLayout } from '@context/LayoutContext';
 
 export function Insights() {
   const { summary, suggestions, coaching } = userInsight();
   const { handleSetInput } = useChat();
+  const { connected } = useLayout();
   return (
     <Styled.Wrapper>
       <div className="block-values">
@@ -30,35 +32,39 @@ export function Insights() {
         <p className="summary">{summary}</p>
       </div>
 
-      <div className="block">
-        <h1>
-          Suggested Responses <Icon name={'chevron down'} size={16} />
-        </h1>
-        {suggestions?.map((suggesiton: Suggestion, i: number) => {
-          return (
-            <p
-              key={'suggestion_' + i}
-              className={'action'}
-              onClick={() => handleSetInput(suggesiton)}
-            >
-              {suggesiton.message}
-            </p>
-          );
-        })}
-      </div>
+      {connected && (
+        <div className="block">
+          <h1>
+            Suggested Responses <Icon name={'chevron down'} size={16} />
+          </h1>
+          {suggestions?.map((suggesiton: Suggestion, i: number) => {
+            return (
+              <p
+                key={'suggestion_' + i}
+                className={'action'}
+                onClick={() => handleSetInput(suggesiton)}
+              >
+                {suggesiton.message}
+              </p>
+            );
+          })}
+        </div>
+      )}
 
-      <div className="block">
-        <h1>
-          Coaching <Icon name={'chevron down'} size={16} />
-        </h1>
-        {coaching?.map((suggesiton: Suggestion, i: number) => {
-          return (
-            <p key={'suggestion_' + i} className={'summary'}>
-              {suggesiton.message}
-            </p>
-          );
-        })}
-      </div>
+      {connected && (
+        <div className="block">
+          <h1>
+            Coaching <Icon name={'chevron down'} size={16} />
+          </h1>
+          {coaching?.map((suggesiton: Suggestion, i: number) => {
+            return (
+              <p key={'suggestion_' + i} className={'summary'}>
+                {suggesiton.message}
+              </p>
+            );
+          })}
+        </div>
+      )}
     </Styled.Wrapper>
   );
 }

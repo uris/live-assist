@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   border-top: 1px solid ${themeColors.grays200};
   outline: none;
   overflow: visible;
+  background: rgba(0, 0, 0, 0.02);
 `;
 
 export const TextArea = styled.textarea`
