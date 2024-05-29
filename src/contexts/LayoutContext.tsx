@@ -10,12 +10,14 @@ export type LayoutContextType = {
   showConfirmPanel: Confirmation | null;
   notification: Notification | null;
   popUp: PopUp | null;
+  connected: boolean;
   handleSetMenuItem: (value: number) => void;
   handleSetShowActionMenu: (value: boolean) => void;
   handleShowDemoOptions: (value: boolean) => void;
   handleConfirmationPanel: (show: boolean, type?: ConfirmationType) => void;
   handleNotification: (notificationInfo: Partial<Notification>) => void;
   handlePopUp: (popUpInfo: Partial<PopUp>) => void;
+  handleSetConnected: (state: boolean) => void;
 };
 
 export enum ConfirmationType {
@@ -53,6 +55,11 @@ function LayoutProvider(props: Props) {
   const [showConfirmPanel, setShowConfirmPanel] = useState<Confirmation | null>(
     null,
   );
+  const [connected, setConnected] = useState<boolean>(false);
+
+  function handleSetConnected(state: boolean) {
+    setConnected(state);
+  }
 
   function handleSetMenuItem(value: number) {
     setMenuItem(value);
@@ -95,12 +102,14 @@ function LayoutProvider(props: Props) {
         showConfirmPanel,
         notification,
         popUp,
+        connected,
         handleSetMenuItem,
         handleSetShowActionMenu,
         handleShowDemoOptions,
         handleConfirmationPanel,
         handleNotification,
         handlePopUp,
+        handleSetConnected,
       }}
     >
       {children}

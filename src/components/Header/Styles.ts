@@ -30,7 +30,6 @@ export const Wrapper = styled.div`
   div.status {
     border-radius: 100px;
     background-color: rgba(255, 255, 255, 0.3);
-    padding: 8px 16px;
-    color: ;
+    padding: 10px 16px;
   }
 `;
