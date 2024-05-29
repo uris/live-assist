@@ -27,7 +27,7 @@ export function Dashboard() {
           <ShareControls />
         </Styled.SharePanel>
         <Styled.ChatPanel>
-          <PanelHeader title={`Chat with ${customerInfo?.firstName}`} />
+          <PanelHeader title={`${customerInfo?.firstName}'s Chat History`} />
           <MessageThread>
             <ChatMessageList />
           </MessageThread>

@@ -34,11 +34,11 @@ export function Header() {
       </div>
       <div className="title">
         <div ref={scope} className="status">
-          Live Assist
+          {`Live Assist - ${connected ? 'Connected' : 'Observing'}`}
         </div>
       </div>
       <div className="button-group-right">
-        Take Control
+        Connect to Session
         <Switch
           state={connected}
           bgColorOff={'rgba(0,0,0,0.25)'}
