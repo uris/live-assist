@@ -6,7 +6,8 @@ export const Wrapper = styled.div`
   ${flexBox.rowBetween};
   ${type.desktop.textRegular};
   padding: 16px 16px;
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid ${themeColors.grays300};
   width: 100%;
   gap: 16px;
   div {

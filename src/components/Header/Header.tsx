@@ -1,7 +1,7 @@
 import { Image } from '@asset/images/Logo';
 import * as Styled from './Styles';
 import { themeColors } from '@ref/colors';
-import { Icon } from '@asset/Icons/Icon';
+import { Switch } from '@comp/Switch/Switch';
 
 export function Header() {
   return (
@@ -13,7 +13,8 @@ export function Header() {
         <div className="status">Live Assist</div>
       </div>
       <div className="button-group-right">
-        <Icon name={'x'} strokeColor={themeColors.graysWhite} />
+        Take Control
+        <Switch state={false} bgColorOff={'rgba(0,0,0,0.25)'} />
       </div>
     </Styled.Wrapper>
   );

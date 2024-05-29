@@ -25,7 +25,7 @@ export const ContentWrapper = styled.div`
   overflow: hidden;
   width: 100%;
   flex: 1;
-  border-top: 1px solid ${themeColors.grays200};
+  border-top: 0px solid ${themeColors.grays200};
 `;
 
 export const SharePanel = styled.div`
